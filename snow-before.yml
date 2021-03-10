@@ -11,9 +11,11 @@
       instance: dev76820
       state: present
       data:
-        caller: "Automation Services Catalog"
+        caller: 7cfdcbb52f3e2010d6a67f572799b64d
+        Category: "software"
+        Subcategory: "os"
         short_description: "Automation Services Catalog - Ansible Automation Order"
-        state: "In Progress"
+        state: 2
         description: "Order ID : {{orderid}} --- {{productname}} was ordered by {{username}}<{{useremail}}> on {{orderedat}}. CPU's = {{cpu}} | Memory = {{memory}} on Platform {{productplatform}}"
         severity: 3
         priority: 2
