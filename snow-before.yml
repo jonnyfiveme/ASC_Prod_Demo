@@ -11,6 +11,7 @@
       instance: dev76820
       state: present
       data:
-        short_description: "Order ID : {{orderid}} --- {{productname}} was ordered by {{username}}<{{useremail}}> on {{orderedat}}. CPU's = {{cpu}} | Memory = {{memory}} on Platform {{productplatform}}"
+        short_description: "Automation Services Catalog - Ansible Automation Order"
+        description: "Order ID : {{orderid}} --- {{productname}} was ordered by {{username}}<{{useremail}}> on {{orderedat}}. CPU's = {{cpu}} | Memory = {{memory}} on Platform {{productplatform}}"
         severity: 3
         priority: 2
