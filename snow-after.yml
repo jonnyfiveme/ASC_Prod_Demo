@@ -8,10 +8,11 @@
    random_number_octet_2: "{{ 99 | random }}"
    random_number_octet_3: "{{ 99 | random }}"
    random_number_octet_4: "{{ 99 | random }}"
-   cpu: "2"
-   memory: "4"
-   username: "John Hardy"
-   date: "10/12/2021"
+   cpu: "{{ cpu }}"
+   memory: "{{ memory }}"
+   username: "{{ ordered_by_name }}"
+   date: "{{ created_at }}"
+   orderid: "{{ order_id }}"
 
   tasks:
   - name: Close an incident
