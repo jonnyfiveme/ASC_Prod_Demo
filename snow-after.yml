@@ -24,7 +24,7 @@
       number: "{{ record_number }}"
       data:
         state: 7
-        close_notes: "Done Done"
+        close_notes: "The server was provisioned sucessfully by Ansible"
         incident_state: "7"
         close_code: "Solved (Permanently)"
     register: new_incident
