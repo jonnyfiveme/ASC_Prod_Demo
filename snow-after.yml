@@ -4,13 +4,16 @@
   gather_facts: no
 
   tasks:
-  - name: Create an incident
+  - name: Close an incident
     servicenow.servicenow.snow_record:
       username: admin
       password: llDpE4MZ6thQ
       instance: dev76820
       state: present
+      number: "{{ record_number }}"
       data:
-        short_description: "AFTER --- The product was ordered"
-        severity: 3
-        priority: 2
+        state: 7
+        close_notes: "Done Done"
+        incident_state: "7"
+        close_code: "Solved (Permanently)"
+    register: new_incident
