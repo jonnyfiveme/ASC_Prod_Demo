@@ -2,6 +2,16 @@
 - name: Using ServiceNow Collection
   hosts: localhost
   gather_facts: no
+  vars:
+   random_number: "{{ 1000000 | random }}"
+   random_number_octet_1: "{{ 99 | random }}"
+   random_number_octet_2: "{{ 99 | random }}"
+   random_number_octet_3: "{{ 99 | random }}"
+   random_number_octet_4: "{{ 99 | random }}"
+   cpu: "2"
+   memory: "4"
+   username: "John Hardy"
+   date: "10/12/2021"
 
   tasks:
   - name: Close an incident
@@ -17,3 +27,22 @@
         incident_state: "7"
         close_code: "Solved (Permanently)"
     register: new_incident
+  - name: Close an incident
+    servicenow.servicenow.snow_record:
+      username: admin
+      password: llDpE4MZ6thQ
+      instance: dev76820
+      state: present
+      table: "cmdb_ci_kvm_object"
+      data:
+        asset_tag: "{{ random_number }}"
+        attributes: "CPU={{ cpu }} | Memory={{ memory }}"
+        comments: "Virtual Machine requested by {{ username }} on {{ date }}"
+        name: "VM_{{ random_number }}"
+        short_description: "Red Hat Automation Services Catalog Virtual Machine"
+        mac_address: "a3:0f:77:4e:{{ random_number_octet_1 }}:{{ random_number_octet_2 }}:{{ random_number_octet_3 }}:{{ random_number_octet_4 }}"
+        model_number: "{{ cpu }}-cpu/{{ memory }}gb"
+        serial_number: "random_number"
+        ip_address: "10.1.{{ random_number_octet_4 }}.{{ random_number_octet_4 }}"
+
+
